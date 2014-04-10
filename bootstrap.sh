@@ -17,6 +17,10 @@ apt-get install -y libgl1-mesa-dev g++-multilib mingw32 tofrodos
 apt-get install -y python-markdown libxml2-utils xsltproc zlib1g-dev:i386
 ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
 
-mkdir /home/vagrant/bin
-curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > /home/vagrant/bin/
-chmod a+x ~/bin/repo
+if [ ! -d "/home/vagrant/bin" ] ; then
+    mkdir /home/vagrant/bin
+fi
+
+curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > /home/vagrant/bin/repo
+chown vagrant:vagrant /home/vagrant/bin/repo
+chmod a+x /home/vagrant/bin/repo
