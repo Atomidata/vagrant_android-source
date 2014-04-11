@@ -32,3 +32,22 @@ You can continue and download the source:
 	$ repo sync
 
 Continue with the instructions from [http://source.android.com/](http://source.android.com/).
+
+Customization:
+-----------------
+
+Older versions of the Android source (pre April 2014) need Java 6 to build, in Vagrantfile change:
+
+	USE_JAVA_6=false
+
+to:
+
+	USE_JAVA_6=true
+
+You can customize the number of CPU cores and memory the VM will utilize in Vagrantfile, the default is set to 2 CPU cores and 2GB RAM which is
+pretty conservative.
+
+	  config.vm.provider "virtualbox" do |v|
+	    v.memory = 2 * 1024
+	    v.cpus = 2
+	  end
